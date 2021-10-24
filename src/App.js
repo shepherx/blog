@@ -17,6 +17,7 @@ const query = `
         width
         height
       }
+      date
     }
   }
 }
@@ -44,18 +45,26 @@ function App() {
         setPage(data.blogPostCollection.items[0]);
       });
   }, []);
+  
 
   if (!blogPost) {
     return "Loading...";
   }
 
-  // render the fetched Contentful data
   return (
     <div className="App">
       <header className="App-header">
+        <h1 class="banner">shepherx.com</h1>
         <div class="post-wrapper">
           <img src={blogPost.image.url} class="App-logo" alt="logo" />
           <p class="title-wrapper">{blogPost.title}</p>
+          <p class="title-wrapper">{blogPost.date}</p>
+          <p>{blogPost.thoughts}</p>
+        </div>
+        <div class="post-wrapper">
+          <img src={blogPost.image.url} class="App-logo" alt="logo" />
+          <p class="title-wrapper">{blogPost.title}</p>
+          <p class="title-wrapper">{blogPost.date}</p>
           <p>{blogPost.thoughts}</p>
         </div>
       </header>
