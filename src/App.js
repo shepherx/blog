@@ -6,6 +6,17 @@ const query = `
   blogPostCollection {
     items {
       title
+      thoughts
+      image {
+        title
+        description
+        contentType
+        fileName
+        size
+        url
+        width
+        height
+      }
     }
   }
 }
@@ -42,8 +53,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={page.logo.url} className="App-logo" alt="logo" /> */}
-        <p>{blogPost.title}</p>
+        <div class="post-wrapper">
+          <img src={blogPost.image.url} class="App-logo" alt="logo" />
+          <p class="title-wrapper">{blogPost.title}</p>
+          <p>{blogPost.thoughts}</p>
+        </div>
       </header>
     </div>
   );
